@@ -1,0 +1,10 @@
+.item-detail-image{
+	width:150px;
+	height: 200px;
+}
+.item-detail .list-group-item {
+    padding: 0.5rem 0;   
+}
+.item-detail-property {
+	min-width: 210px;
+}

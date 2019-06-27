@@ -1,0 +1,11 @@
+
+.random-planet-image{
+	width:200px;
+	height: 200px;
+}
+.random-planet .list-group-item {
+    padding: 0.5rem 0;   
+}
+.random-planet-property {
+	min-width: 210px;
+}

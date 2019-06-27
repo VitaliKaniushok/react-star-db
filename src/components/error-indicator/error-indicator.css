@@ -1,0 +1,9 @@
+.error-indicator {
+	width: 100%;
+	color:tomato;
+	font-size: 18px;	
+	text-align: center;
+}
+.error-indicator h1 {
+	text-transform: uppercase;
+}

@@ -1,0 +1,28 @@
+.navbar-light .navbar-nav .nav-link {
+    color:#00bc8c;
+    font-size:1.2rem;
+}
+.nav-item {
+	margin-right: 1rem;
+}
+.header-title {
+	margin-right: 5rem;
+}
+@media (min-width: 768px) {
+	.navbar-expand-lg .navbar-collapse {
+	    display: -webkit-box !important;
+	    display: -ms-flexbox !important;
+	    display: flex !important;
+	    -ms-flex-preferred-size: auto;
+	    flex-basis: auto;
+	}
+	.navbar-expand-lg .navbar-nav {
+	    -webkit-box-orient: horizontal;
+	    -webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	    flex-direction: row;
+	}
+	.navbar-expand-lg .navbar-toggler {
+	    display: none;
+	}
+}
