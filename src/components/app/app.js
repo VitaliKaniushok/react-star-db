@@ -8,17 +8,17 @@ import './app.css';
 
 export default class App extends Component {
 	
-	swapiService = new SwapiService();
+	// swapiService = new SwapiService();
 
-	 state = {
-        personId: 1
-    }
+	//  state = {
+ //        personId: 1
+ //    }
 
-    showDetail = (personId) => {
-        this.setState({
-            personId
-        });
-    }
+ //    showDetail = (personId) => {
+ //        this.setState({
+ //            personId
+ //        });
+ //    }
 
 	render() {
 
@@ -26,7 +26,7 @@ export default class App extends Component {
 			<div className="app container">
 				<Header />
 				<RandomPlanet />
-				<PeoplePage getDate = {this.swapiService.getAllPeople}/>
+				<PeoplePage />
 
 				
 

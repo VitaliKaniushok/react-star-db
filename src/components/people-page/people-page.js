@@ -3,6 +3,7 @@ import ItemList from '../item-list';
 import ItemDetails from '../item-details';
 import Row from '../row';
 import SwapiService from '../../services/swapi-service.js';
+import Record from '../record';
 
 export default class PeoplePage extends Component {
 
@@ -24,12 +25,18 @@ export default class PeoplePage extends Component {
         const itemList = ( 
 
             <ItemList showDetail={this.showDetail}
-                        getData ={this.props.getDate} />
+                        getData ={this.swapiService.getAllPeople} />
         );
 
         const personDetail = (
-            <ItemDetails personId={this.state.personId}
-            				getData={this.swapiService.getPerson}/>
+            <ItemDetails 
+                itemId={this.state.personId}
+            	getData={this.swapiService.getPerson}>                  
+                
+                <Record label='Gender' field='gender'/>
+                <Record label='Years' field='birthYear'/>
+                <Record label='Eye color' field='eyeColor'/>
+            </ItemDetails>
         );
 
         return (
