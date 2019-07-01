@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Spinner from '../spinner';
 
-const HocItemList = (View) => {
+const HocItemList = (View,getData) => {
 
 	return class  extends Component {
 
@@ -11,7 +11,7 @@ const HocItemList = (View) => {
 
 		componentDidMount() {
 			
-			this.props.getData()			
+			getData()			
 				.then((data) => {
 					this.setState({ data });
 			});

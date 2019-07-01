@@ -1,5 +1,4 @@
 import React from 'react';
-import HocItemList from '../hoc/hoc-item-list.js';
 
 import './item-list.css';
 
@@ -9,14 +8,17 @@ const ItemList = (props)=> {
 
 	const listGroup = ( data ) => {	
 
-		return data.map((item) => {		
-			const { id, name } = item;
+		return data.map((item) => {
+
+			const { id } = item;			
+			const label = props.children(item);
+
 			return (
 
 				<li key={id} 
 					className="list-group-item list-group-item-action"
 					onClick={()=> props.showDetail(id)} >
-					{name}
+					{label}
 				</li>
 			);
 		});		
@@ -31,4 +33,4 @@ const ItemList = (props)=> {
 	
 };
 
-export default HocItemList(ItemList);
+export default ItemList;

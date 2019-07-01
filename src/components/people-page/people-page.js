@@ -18,7 +18,7 @@ export default class PeoplePage extends Component {
         this.setState({
             personId
         });
-    };    
+    };
 
     render() {
 
