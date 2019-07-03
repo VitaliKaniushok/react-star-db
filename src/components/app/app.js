@@ -2,11 +2,9 @@ import React, {Component} from 'react';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import Row from '../row';
-import {
-	PersonDetails,
-	PlanetDetails,
-	StarshipDetails
-} from '../sw-components/sw-details.js';
+import {SwapiServiceProvider} from '../swapi-service-context';
+import SwapiService from '../../services/swapi-service.js';
+import PersonDetails from '../sw-components/person-details.js';
 
 import {
 	PersonList,
@@ -27,7 +25,9 @@ export default class App extends Component {
         this.setState({
             personId
         });
-    }
+    };
+
+    swapiService = new SwapiService();
 
 	render() {
 
@@ -42,11 +42,13 @@ export default class App extends Component {
 		);
 
 		return (
-			<div className="app container">
-				<Header />
-				<RandomPlanet />
-				<Row leftContent={personList} rightContent={personDetails} />
-			</div>
+			<SwapiServiceProvider value={this.swapiService}>
+				<div className="app container">
+					<Header />
+					<RandomPlanet />
+					<Row leftContent={personList} rightContent={personDetails} />
+				</div>
+			</SwapiServiceProvider>
 		);
 	}
 }
