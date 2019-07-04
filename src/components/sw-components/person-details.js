@@ -1,7 +1,7 @@
 import React from 'react';
-import ItemDetails from '../item-details';
-import Record from '../record';
-import HocSwapiServiceContext from '../hoc/hoc-swapi-service-context.js';
+import ItemDetails from '../item-details/';
+import Record from '../record/';
+import {HocSwapiServiceContext} from '../hoc/';
 
 const PersonDetails = (props) => {
 
@@ -22,18 +22,4 @@ const mapMethodsToProps = (swapiService) => {
 	}
 }
 
-export default HocSwapiServiceContext(PersonDetails,mapMethodsToProps);
-
-// const PlanetDetails = () => {
-
-// }
-
-// const StarshipDetails = () => {
-
-// }
-
-// export {
-// 	PersonDetails,
-// 	PlanetDetails,
-// 	StarshipDetails
-// }
+export default HocSwapiServiceContext(mapMethodsToProps)(PersonDetails);

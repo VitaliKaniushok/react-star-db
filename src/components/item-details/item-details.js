@@ -6,18 +6,21 @@ export default class itemDetails extends Component {
     
     state = {
         item:null,
-        image:null
+        image:null,
+        loading:true,
+        error:false
     }
     updateItem() {
 
         const { itemId, getData, getImageUrl } = this.props;
 
-        if(!itemId) {
-            return;
-        };
+        // if(!itemId) {
+        //     return;
+        // };
 
         this.setState({
-            item:null
+            loading:true,
+            error:false
         });
 
         getData(itemId)
@@ -26,6 +29,12 @@ export default class itemDetails extends Component {
                     item,
                     image:getImageUrl(itemId)
                 });                
+            })
+            .catch(()=>{
+                this.setState({
+                    loading:false,
+                    error:true
+                });
             });
     }
 
@@ -54,7 +63,7 @@ export default class itemDetails extends Component {
         return (       
 
             <div className="d-flex flex-wrap bg-light p-3 rounded">     
-                <img className="item-detail-image rounded" src={image}/>      
+                <img className="item-detail-image rounded" src={image} alt=''/>      
                 
                 <div className="item-detail-property m-3">
                     <h3>{name}</h3>

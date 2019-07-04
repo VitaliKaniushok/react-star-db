@@ -1,4 +1,5 @@
 import React from 'react';
+import PropType  from 'prop-types';
 
 import './item-list.css';
 
@@ -33,4 +34,12 @@ const ItemList = (props)=> {
 	
 };
 
+ItemList.defaultProps = {
+	showDetail: () => {}
+}
+ItemList.propTypes = {
+	showDetail:PropType.func,
+	data: PropType.arrayOf(PropType.object).isRequired,
+	children:PropType.func.isRequired
+}
 export default ItemList;

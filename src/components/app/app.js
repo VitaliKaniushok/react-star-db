@@ -1,54 +1,38 @@
-import React, {Component} from 'react';
-import Header from '../header';
-import RandomPlanet from '../random-planet';
-import Row from '../row';
-import {SwapiServiceProvider} from '../swapi-service-context';
+import React, { Component } from 'react';
+import ErrorBoundry from '../error-boundry/';
+import Header from '../header/';
+import RandomPlanet from '../random-planet/';
+import { SwapiServiceProvider } from '../swapi-service-context/';
 import SwapiService from '../../services/swapi-service.js';
-import PersonDetails from '../sw-components/person-details.js';
 
-import {
-	PersonList,
-	PlanetList,
-	StarshipList
-} from '../sw-components/sw-iltem-lists.js';
+import { PeoplePage, PlanetPage, StarshipPage } from '../pages/';
 
 import './app.css';
 
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 export default class App extends Component {
-
-	 state = {
-        personId: 1
-    }
-
-    showDetail = (personId) => {
-    	
-        this.setState({
-            personId
-        });
-    };
 
     swapiService = new SwapiService();
 
-	render() {
-
-		const personList = (
-			<PersonList showDetail={this.showDetail}>
-				{(item)=>{return item.name}}
-			</PersonList>
-		);
-
-		const personDetails = (
-			<PersonDetails itemId={this.state.personId}/>
-		);
+	render() {		
 
 		return (
-			<SwapiServiceProvider value={this.swapiService}>
-				<div className="app container">
-					<Header />
-					<RandomPlanet />
-					<Row leftContent={personList} rightContent={personDetails} />
-				</div>
-			</SwapiServiceProvider>
+			<ErrorBoundry>
+				<SwapiServiceProvider value={this.swapiService}>
+					<Router>
+						<div className="app container">
+							<Header />
+							<RandomPlanet />
+
+							<Route path='/people' component={PeoplePage} />
+							<Route path='/planets' component={PlanetPage} />
+							<Route path='/starships' component={StarshipPage} />			
+
+						</div>
+					</Router>
+				</SwapiServiceProvider>
+			</ErrorBoundry>
 		);
 	}
 }

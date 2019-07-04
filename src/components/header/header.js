@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css';
-
+import { Link } from 'react-router-dom';
 
 const Header = (props) => {
   return (
@@ -14,18 +14,17 @@ const Header = (props) => {
 		  <div className="collapse navbar-collapse" id="navbarColor03">
 		    <ul className="navbar-nav">
 		      <li className="nav-item active">
-		        <a className="nav-link" href="#">People<span className="sr-only">(current)</span></a>
+		        <Link className="nav-link" to='/people'>People</Link>
 		      </li>
 		      <li className="nav-item">
-		        <a className="nav-link" href="#">Starship</a>
+		        <Link className="nav-link" to='/planets'>Planets</Link>
 		      </li>
 		      <li className="nav-item">
-		        <a className="nav-link" href="#">Planets</a>
+		        <Link className="nav-link" to='/starships'>Starships</Link>
 		      </li>		      
 		    </ul>		    
 		  </div>
 		</nav>
-    
   )
 }
 

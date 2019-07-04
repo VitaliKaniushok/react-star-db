@@ -1,19 +1,44 @@
-import React from 'react';
 import ItemList from '../item-list';
-import HocItemList from '../hoc/hoc-item-list.js';
-import SwapiService from '../../services/swapi-service.js';
+import { HocItemList, HocSwapiServiceContext, Compose, RenderFunction } from '../hoc/';
 
-const swapiService = new SwapiService();
+const renderName = ({ name })=> name;
 
-const {
-	getAllPeople,
-	getAllPlanets,
-	getAllStarships
-} = swapiService;
+const mapPersonsMethodsToProps = (swapiService) => {	
+	return {
+		getData: swapiService.getAllPeople
+	};
+}
 
-const PersonList = HocItemList(ItemList,getAllPeople);
-const PlanetList = HocItemList(ItemList,getAllPlanets);
-const StarshipList = HocItemList(ItemList,getAllStarships);
+const mapPlanetsMethodsToProps = (swapiService) => {
+	return {
+		getData: swapiService.getAllPlanets
+	};
+}
+
+const mapStarshipsMethodsToProps = (swapiService) => {
+	return {
+		getData: swapiService.getAllStarships
+	};
+}
+
+const PersonList = Compose(
+						HocSwapiServiceContext(mapPersonsMethodsToProps),
+						HocItemList,
+						RenderFunction(renderName)
+					)(ItemList);
+
+const PlanetList = Compose(
+						HocSwapiServiceContext(mapPlanetsMethodsToProps),
+						HocItemList,
+						RenderFunction(renderName)
+					)(ItemList);
+
+const StarshipList = Compose(
+						HocSwapiServiceContext(mapStarshipsMethodsToProps),
+						HocItemList,
+						RenderFunction(renderName)
+					)(ItemList);
+
 
 export {
 	PersonList,
