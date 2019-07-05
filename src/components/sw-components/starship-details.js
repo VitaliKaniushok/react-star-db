@@ -6,10 +6,9 @@ import {HocSwapiServiceContext} from '../hoc';
 const StarshipDetails = (props) => {
 
 	return (
-		<ItemDetails {...props}>
-	        <Record label='Cargo capacity' field='cargoCapacity'/>
+		<ItemDetails {...props}>	        
 	        <Record label='Crew' field='crew'/>
-	        <Record label='Cost' field='costInCredits'/>
+	        <Record label='Passengers' field='passengers'/>	        
 	    </ItemDetails>
 	)
 }
@@ -21,5 +20,7 @@ const mapMethodsToProps = (swapiService) => {
 		getImageUrl:swapiService.getImageStarship
 	}
 }
-
+StarshipDetails.defaultProps ={
+	itemId:12
+}
 export default HocSwapiServiceContext(mapMethodsToProps)(StarshipDetails);

@@ -21,5 +21,7 @@ const mapMethodsToProps = (swapiService) => {
 		getImageUrl:swapiService.getImagePlanet
 	}
 }
-
+PlanetDetails.defaultProps = {
+	itemId:9
+}
 export default HocSwapiServiceContext(mapMethodsToProps)(PlanetDetails);

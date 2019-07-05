@@ -21,5 +21,7 @@ const mapMethodsToProps = (swapiService) => {
 		getImageUrl:swapiService.getImagePerson
 	}
 }
-
+PersonDetails.defaultProps = {
+	itemId:1
+}
 export default HocSwapiServiceContext(mapMethodsToProps)(PersonDetails);

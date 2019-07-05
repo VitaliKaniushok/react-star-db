@@ -9,7 +9,7 @@ import './random-planet.css';
 export default class RandomPlanet extends Component {
 
 	static defaultProps = {
-		interval: 3000
+		interval: 7000
 	};
 
 	static propTypes = {

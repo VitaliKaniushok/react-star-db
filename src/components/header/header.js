@@ -13,15 +13,21 @@ const Header = (props) => {
 
 		  <div className="collapse navbar-collapse" id="navbarColor03">
 		    <ul className="navbar-nav">
-		      <li className="nav-item active">
-		        <Link className="nav-link" to='/people'>People</Link>
+		      <li className="nav-item">
+		        <Link className="nav-link" to='/people/'>People</Link>
 		      </li>
 		      <li className="nav-item">
-		        <Link className="nav-link" to='/planets'>Planets</Link>
+		        <Link className="nav-link" to='/planets/'>Planets</Link>
 		      </li>
 		      <li className="nav-item">
-		        <Link className="nav-link" to='/starships'>Starships</Link>
-		      </li>		      
+		        <Link className="nav-link" to='/starships/'>Starships</Link>
+		      </li>
+		      <li className="nav-item">
+		        <Link className="nav-link" to='/login'>Login</Link>
+		      </li>
+		      <li className="nav-item">
+		        <Link className="nav-link" to='/secret'>Secret</Link>
+		      </li>	      
 		    </ul>		    
 		  </div>
 		</nav>
