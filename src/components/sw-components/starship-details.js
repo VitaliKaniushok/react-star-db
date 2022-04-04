@@ -20,7 +20,7 @@ const mapMethodsToProps = (swapiService) => {
 		getImageUrl:swapiService.getImageStarship
 	}
 }
-StarshipDetails.defaultProps ={
-	itemId:12
-}
+// StarshipDetails.defaultProps ={
+// 	itemId:2
+// }
 export default HocSwapiServiceContext(mapMethodsToProps)(StarshipDetails);

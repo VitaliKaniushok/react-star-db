@@ -46,17 +46,18 @@ export default class App extends Component {
 										render={() => <h2>Welcome to StarDb</h2>}
 										exact={true} />
 
-								<Route path='/people/:id?' component={PeoplePage} />
-								<Route path='/planets/:id?' component={PlanetPage} />
-								<Route path='/starships/:id?' component={StarshipPage} exact />
+								<Route path='/people/:page?/:id?/' component={PeoplePage} />
+								<Route path='/planets/:page?/:id?/' component={PlanetPage} />
+								<Route path='/starships/:page?/:id?/' component={StarshipPage} />
 
-								{/*<Route 
+								{/* <Route 
 									path='/starships/:id?/details' 
 									render={() => (
-										<StarshipDetails
-											isFullDetails={true}
-									)} />*/}
-
+										<LoginPage 
+											isLoggedIn={isLoggedIn}
+											onLogin={ this.onLogin }/>
+									)} /> */}
+									
 								<Route 
 									path='/login' 
 									render={() => (
@@ -72,7 +73,7 @@ export default class App extends Component {
 									)} />
 
 								<Redirect to ='/'/>
-								{/*<Route render ={ ()=> <h1>Page not found</h1> } />*/}
+								<Route render ={ ()=> <h1>Page not found</h1> } />
 							</Switch>												
 
 						</div>

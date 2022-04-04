@@ -5,25 +5,25 @@ import ErrorIndicator from '../error-indicator/';
 const HocItemList = (View) => {
 
 	return class  extends Component {
-
+		
 		state = {
 			data:null,
 			loading:true,
 			error:false
-		}
+		}		
 
 		update() {
-
 			this.setState({ 
 				laoding:true,
 				error:false
 			});
 
-			this.props.getData()			
+			if (this.props.numPage) {
+				this.props.getData(this.props.numPage)			
 				.then((data) => {					
 					this.setState({ 
 						data,
-						loading:false
+						loading:false,
 					});
 				})
 				.catch(()=>{
@@ -31,7 +31,15 @@ const HocItemList = (View) => {
 						loading:false,
 						error:true
 					});
-				});			
+				});
+			}			
+		}
+
+		componentDidUpdate(prevProps) {
+			
+			if (this.props.numPage != prevProps.numPage) {
+				this.update();
+			}
 		}
 
 		componentDidMount() {
@@ -41,9 +49,8 @@ const HocItemList = (View) => {
 		render() {
 
 			const { data, loading, error } = this.state;
-
 			if (loading) {
-
+				
 				return <Spinner />
 			}
 
