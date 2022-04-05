@@ -1,8 +1,10 @@
 {
+  "homepage": "https://github.com/VitaliKaniushok/react-star-db.git",
   "name": "star-db",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^3.2.3",
     "minimist": "^1.2.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -12,6 +14,8 @@
     "save-dev": "0.0.1-security"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
