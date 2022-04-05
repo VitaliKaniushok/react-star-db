@@ -1,5 +1,9 @@
+.item-detail-name {
+   color:#00bc8c;
+	padding: 0 0 0 1.25rem;
+}
 .item-detail-image{
-	width:150px;
+	width:160px;
 	height: 200px;
 }
 .item-detail .list-group-item {
@@ -7,4 +11,17 @@
 }
 .item-detail-property {
 	min-width: 210px;
+	max-width: 250px;
+	white-space: pre-wrap;
+}
+.item-detail-error-img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color:red;
+	font-size: 17px;
+	line-height: 20px;
+	text-align: center;
+	white-space: pre-wrap;
+	border: 1px solid #f1f1f1;
 }

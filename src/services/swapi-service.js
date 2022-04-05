@@ -1,10 +1,9 @@
 export default class SwapiService {
 
 	constructor() {
-		this._apiBase = 'https://swapi.co/api';
+		this._apiBase = 'https://swapi.dev/api';
 		this._imageBase = `https://starwars-visualguide.com/assets/img`;
 	};
-
 	 
 	async getData(url) {
 
@@ -14,15 +13,18 @@ export default class SwapiService {
 			throw new Error (`Could not fetch: ${this._apiBase}${url}, received: ${data.status}`);				
 		}
 
-		return data.json();		
+		return data.json();
+	}
+	
+	getAllPeople = async (page=1) => {
+		const res = await this.getData(`/people/?page=${page}`);
+		return {
+			count: res.count,
+			desc: res.results.map(this._transformPerson)
+		};
 	}
 
-	getAllPeople = async () => {
-		const res = await this.getData(`/people/`);
-		return res.results.map(this._transformPerson);
-	}
-
-	getPerson = async (id) => {		
+	getPerson = async (id) => {
 		const person = await this.getData(`/people/${id}/`);
 		return this._transformPerson(person);
 	}
@@ -31,9 +33,12 @@ export default class SwapiService {
 		return `${this._imageBase}/characters/${id}.jpg`
 	}
 
-	getAllPlanets = async () => {
-		const res = await this.getData(`/planets/`);
-		return res.results.map(this._transformPlanet);
+	getAllPlanets = async (page=1) => {
+		const res = await this.getData(`/planets/?page=${page}`);
+		return {
+			count: res.count,
+			desc: res.results.map(this._transformPlanet)
+		};
 	}
 
 	getPlanet = async (id) => {
@@ -41,13 +46,16 @@ export default class SwapiService {
 		return this._transformPlanet(planet);
 	}
 
-	getImagePlanet = (id) => {
-		return `${this._imageBase}/planets/${id}.jpg`
+	getImagePlanet = (id) => {		
+		return `${this._imageBase}/planets/${id}.jpg`;
 	}
 
-	getAllStarships = async () => {
-		const res = await this.getData(`/starships/`);
-		return res.results.map(this._transformStarship);
+	getAllStarships = async (page=1) => {
+		const res = await this.getData(`/starships/?page=${page}`);
+		return {
+			count: res.count,
+			desc: res.results.map(this._transformStarship)
+		};
 	}
 
 	getStarship = async (id) => {

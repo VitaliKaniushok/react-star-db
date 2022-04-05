@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 
 const SecretPage = ({ isLoggedIn }) => {
@@ -9,13 +9,19 @@ const SecretPage = ({ isLoggedIn }) => {
 		return (
 			<div className="jumbotron text-center">
 				<h3>Welcome to Secret Page!!!</h3>
+				
 			</div>
 		);
 	}
 
-	return <Redirect to ='/login' />
+	// return <Redirect to ='/login' />
 	
-	// return <h4 className="text-center text-monospace text-danger">You should not see this!!!</h4>
+	return (
+		<div>
+			<h3 className="text-center"><p>Page in developing</p></h3>
+			<h4 className="text-center text-monospace text-danger">You should not see this!!!</h4>
+		</div>
+	) 
 }
 
 export default SecretPage;

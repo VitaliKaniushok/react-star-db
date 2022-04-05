@@ -1,24 +1,43 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import PropType  from 'prop-types';
+import NavPages from '../nav-pages/';
 
 import './item-list.css';
 
 const ItemList = (props)=> {			
 
-	const {data} = props; 
+	const { data: {desc, count}, changePage, id : activeDetailId, showDetail, path } = props;
 
-	const listGroup = ( data ) => {	
+	const [pageCount, setPageCount] = useState(0);
+
+	useEffect (()=> {
+		
+		let tempCount = count/10;
+		if(count % 10) {
+			++tempCount;
+		}
+		setPageCount(tempCount);
+
+	},[count]);
+
+	useEffect (()=> {
+		showDetail(desc[0].id);
+	},[desc]);
+
+	const listGroup = ( data, activeDetailId ) => {	
 
 		return data.map((item) => {
 
-			const { id } = item;			
+			const { id } = item;	
 			const label = props.children(item);
+
+			let isActive = (activeDetailId == id) ? true : false;
 
 			return (
 
 				<li key={id} 
-					className="list-group-item list-group-item-action"
-					onClick={()=> props.showDetail(id)} >
+					className={"item-list list-group-item list-group-item-action" + (isActive ? " active" : "")}
+					onClick={()=> showDetail(id)} >
 					{label}
 				</li>
 			);
@@ -27,19 +46,25 @@ const ItemList = (props)=> {
 
 	return (
 
-		<ul className="list-item list-group list-group-item-action">
-			{listGroup(data)}
-		</ul>		
-	)
-	
+		<div>			
+			<ul className="list-item list-group list-group-item-action">
+				{listGroup(desc, activeDetailId)}
+			</ul>
+			
+			<NavPages pageCount={pageCount}
+						path={path}											  				  
+						changePage = {changePage} />
+		</div>
+	)	
 };
 
 ItemList.defaultProps = {
-	showDetail: () => {}
+	showDetail: () => {},
+	desc:[{}]
 }
 ItemList.propTypes = {
 	showDetail:PropType.func,
-	data: PropType.arrayOf(PropType.object).isRequired,
+	desc: PropType.arrayOf(PropType.object).isRequired,
 	children:PropType.func.isRequired
 }
 export default ItemList;

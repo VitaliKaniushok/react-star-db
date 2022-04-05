@@ -1,0 +1,10 @@
+.item-list.list-group-item {
+   cursor:pointer;
+}
+.item-list.list-group-item.active {
+   color:#00bc8c;
+   background-color: #303030;
+   outline:1px ridge #077a5d;
+   border:none;
+   border-radius: 0.3rem;
+}
