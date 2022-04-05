@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5cb9dc72c46f400cb3ed6ecae5634929",
+    "revision": "bf5f3fc5a04c694f365fd81b71cd837b",
     "url": "/react-star-db/index.html"
   },
   {
