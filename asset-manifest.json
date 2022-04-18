@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/react-star-db/static/css/main.e4db94f5.chunk.css",
-    "main.js": "/react-star-db/static/js/main.b2d09e63.chunk.js",
-    "main.js.map": "/react-star-db/static/js/main.b2d09e63.chunk.js.map",
+    "main.js": "/react-star-db/static/js/main.c04b08aa.chunk.js",
+    "main.js.map": "/react-star-db/static/js/main.c04b08aa.chunk.js.map",
     "runtime-main.js": "/react-star-db/static/js/runtime-main.1dd8fe17.js",
     "runtime-main.js.map": "/react-star-db/static/js/runtime-main.1dd8fe17.js.map",
-    "static/js/2.fd98b707.chunk.js": "/react-star-db/static/js/2.fd98b707.chunk.js",
-    "static/js/2.fd98b707.chunk.js.map": "/react-star-db/static/js/2.fd98b707.chunk.js.map",
+    "static/js/2.408cc83b.chunk.js": "/react-star-db/static/js/2.408cc83b.chunk.js",
+    "static/js/2.408cc83b.chunk.js.map": "/react-star-db/static/js/2.408cc83b.chunk.js.map",
     "index.html": "/react-star-db/index.html",
-    "precache-manifest.2185507d97d4f31d14c34a15993a254a.js": "/react-star-db/precache-manifest.2185507d97d4f31d14c34a15993a254a.js",
+    "precache-manifest.7c196e834643d0d35adb42846ccdfa33.js": "/react-star-db/precache-manifest.7c196e834643d0d35adb42846ccdfa33.js",
     "service-worker.js": "/react-star-db/service-worker.js",
     "static/css/main.e4db94f5.chunk.css.map": "/react-star-db/static/css/main.e4db94f5.chunk.css.map",
-    "static/js/2.fd98b707.chunk.js.LICENSE.txt": "/react-star-db/static/js/2.fd98b707.chunk.js.LICENSE.txt"
+    "static/js/2.408cc83b.chunk.js.LICENSE.txt": "/react-star-db/static/js/2.408cc83b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1dd8fe17.js",
-    "static/js/2.fd98b707.chunk.js",
+    "static/js/2.408cc83b.chunk.js",
     "static/css/main.e4db94f5.chunk.css",
-    "static/js/main.b2d09e63.chunk.js"
+    "static/js/main.c04b08aa.chunk.js"
   ]
 }
