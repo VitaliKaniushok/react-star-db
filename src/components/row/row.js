@@ -1,11 +1,12 @@
 import React from 'react';
 import ErrorBoundry from '../error-boundry';
+import "./row.css";
 
 const Row =({ leftContent, rightContent }) => {
 
     return (
 
-        <div className="row">
+        <div className="row flex-wrap-reverse">
             <ErrorBoundry>
                 <div className="col-lg-6 mb-3">
                     {leftContent}
@@ -13,7 +14,7 @@ const Row =({ leftContent, rightContent }) => {
             </ErrorBoundry>
 
             <ErrorBoundry>
-                <div className="col-lg-6">
+                <div className="col-lg-6 detail-box">
                     {rightContent}
                 </div>
             </ErrorBoundry>

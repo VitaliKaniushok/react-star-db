@@ -1,3 +1,14 @@
 .app {
-	margin-top: 1.3rem;	
+	margin-top: 1.3rem;
+	color:#fff;
+}
+.bg-light {
+	background-color: #303030!important;
+}
+a  {
+	color:#00bc8c;
+}
+a:hover  {
+	color:#fff;
+	text-decoration: none;
 }
